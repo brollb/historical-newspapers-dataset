@@ -12,6 +12,7 @@ if [ -f $FILE ]; then
     # Check if the hash is correct
     ACTUAL_HASH=$(sha1sum $FILE | cut -d" " -f1)
     if [ "$ACTUAL_HASH" != "$HASH" ]; then
+        echo "removing $FILE"
         rm $FILE
     fi
 else
