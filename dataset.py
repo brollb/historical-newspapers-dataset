@@ -11,7 +11,7 @@ class DataLoader(object):
         self.end = int(end)
 
     def __iter__(self):
-        files = [ f for f in os.listdir(self.dirname) if path.isfile(path.join(self.dirname, f)) ]
+        files = [ f for f in os.listdir(self.dirname) if 'tar.bz2' in f ]
         for f in files:
             print(f)
             with tarfile.open(path.join(self.dirname, f), 'r:bz2') as t:
